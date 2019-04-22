@@ -1,0 +1,347 @@
+:root {
+    --main-font-family: 'Noto Sans', sans-serif;
+    --main-font-color: rgb(0, 0, 0);
+    --small-font-size: 0.75em;
+    --main-background-color: rgb(241, 241, 241);
+    --chart-track-width: 12em;
+    --chart-track-height: 16em;
+    --chart-small-width: 9em;
+    --chart-small-height: 12.5em;
+    --player-margin: 0.5em;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --slider-default-color: rgb(41, 41, 41);
+    --hover-color: rgb(116, 116, 116);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font-family);
+    color: var(--main-font-color);
+    background: var(--main-background-color);
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transform-origin: center;
+    transition: 0.1s;
+}
+
+button:hover {
+    transform: scale(1.2);
+    color: var(--hover-color);
+}
+
+.disabled--button {
+    color: var(--hover-color);
+    cursor: default;
+}
+
+.disabled--button:hover {
+    transform: none;
+    color: var(--hover-color);
+}
+
+i {
+    pointer-events:none;
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10em;
+    font-weight: 700;
+    font-size: 4em;
+    text-align: center;
+}
+
+.chart {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.chart__track {
+    display: flex;
+    flex-direction: column;
+    width: var(--chart-track-width);
+    height: var(--chart-track-height);
+}
+
+.chart__thumbnail {
+    width: var(--chart-track-width);
+    height: var(--chart-track-width);
+    cursor: pointer;
+    position: relative;
+}
+
+.chart__cover {
+    max-width: 100%;
+    max-height: auto;
+}
+
+.chart__overlay {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.chart__thumbnail:hover .chart__overlay{
+    display: flex;
+}
+
+.chart__button {
+    color: white;
+    font-size: 2em;
+}
+
+.chart--pause {
+    display: none;
+}
+
+.chart__details {
+    height: 4em;
+}
+
+.chart__artist {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.chart__song {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+footer {
+    height: 7em;
+}
+
+.player {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5em;
+    background: var(--main-background-color);
+    box-shadow: 0 -1em 1em var(--shadow-color);
+    align-items: center;
+    padding: 0.75em;
+    box-sizing: border-box;
+}
+
+.player__cover {
+    max-height: 100%;
+    max-width: auto;
+    margin-right: var(--player-margin);
+    flex: initial;
+}
+
+.player__song {
+    margin-left: var(--player-margin);
+    margin-right: var(--player-margin);
+    flex: initial;
+}
+
+.player__artist {
+    font-weight: bold;
+}
+
+.player__controls {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.player__buttons {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25em;
+}
+
+.player__button {
+    margin-left: 0.5em;
+    margin-right: 0.5em; 
+}
+
+.player__timeline {
+    display: flex;
+    align-items: center;
+    height: 1.5em;
+}
+
+.player__time {
+    flex: initial;
+    align-items: center;
+    width: 2em;
+    height: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+}
+
+.player__slider {
+    position: relative;
+    height: 1.5em;
+}
+
+.player__track {
+    background: var(--slider-default-color);
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    cursor: pointer;
+    transition: 0.1s;
+    border-radius: 1em;
+}
+
+.player__track:hover {
+    background: var(--hover-color);
+    top: 30%;
+    height: 40%;
+}
+
+.player__thumb {
+    background: var(--slider-default-color);
+    position: absolute;
+    top: 0.25em;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.player__thumb:hover {
+    background: var(--hover-color);
+    transform: scale(1.2);
+}
+
+.timeline--slider {
+    flex:auto;
+}
+
+.player__volume {
+    flex: initial;
+    width: 10em;
+    display: flex;
+}
+
+.volume--button {
+    flex: initial;
+}
+
+.volume--slider {
+    flex: auto;
+}
+
+footer {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+
+    .chart {
+        width: 50em;
+    }
+
+    .chart__track {
+        width: var(--chart-small-width);
+        height: var(--chart-small-height);
+    }
+
+    .chart__thumbnail {
+        width: var(--chart-small-width);
+        height: var(--chart-small-width);
+    }
+
+    .chart__button {
+        font-size: 1.5em;
+    }
+
+    .chart__details {
+        height: 3em;
+    }
+    
+    .chart__artist {
+        margin-top: 0.1875em;
+        margin-bottom: 0.1875em;
+        font-weight: bold;
+    }
+    
+    .chart__song {
+        margin-top: 0.1875em;
+        margin-bottom: 0.1875em;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .chart {
+        width: 30em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart__track {
+        width: var(--chart-track-width);
+        height: var(--chart-track-height);
+    }
+
+    .chart__thumbnail {
+        width: var(--chart-track-width);
+        height: var(--chart-track-width);
+    }
+
+    .chart__button {
+        font-size: 2em;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart {
+        width: 24em;
+    }
+
+    .chart__track {
+        width: var(--chart-small-width);
+        height: var(--chart-small-height);
+    }
+
+    .chart__thumbnail {
+        width: var(--chart-small-width);
+        height: var(--chart-small-width);
+    }
+
+    .chart__button {
+        font-size: 1.5em;
+    }
+
+}

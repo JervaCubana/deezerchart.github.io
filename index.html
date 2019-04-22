@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deezer Chart</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="title">Deezer Chart</h1>
+
+    <div class="chart" id="chart"></div>
+
+    <footer></footer>
+
+    <div class="player" id="player">
+
+        <audio id="current__track"></audio>
+
+        <img class="player__cover" id="player__cover">
+
+        <div class="player__song">
+            
+            <div class="player__artist" id="player__artist"></div>
+
+            <div class="player__title" id="player__title"></div>          
+
+        </div>
+
+        <div class="player__controls">
+
+            <div class="player__buttons" id="player__buttons">
+
+                <button class="player__button player--back" id="player--back"><i class="fas fa-step-backward"></i></button>
+                <button class="player__button player--play" id="player--play"><i class="fas fa-play"></i></button>
+                <button class="player__button player--pause" id="player--pause"><i class="fas fa-pause"></i></button>
+                <button class="player__button player--forward" id="player--forward"><i class="fas fa-step-forward"></i></button>
+
+            </div>
+
+            <div class="player__timeline">
+
+                <p class="player__time" id="player__played">0:00</p>
+
+                <div class="player__slider timeline--slider">
+    
+                    <div class="player__track timeline--track"></div>
+                    <div class="player__thumb timeline--thumb"></div>
+    
+                </div>
+
+                <p class="player__time" id="player__left">0:30</p>
+            </div>
+
+        </div>
+
+        <div class="player__volume">
+
+            <button class="player__button volume--button"><i class="fas fa-volume-mute"></i></button>
+            <button class="player__button volume--button"><i class="fas fa-volume-down"></i></button>
+            <button class="player__button volume--button"><i class="fas fa-volume-up"></i></button>
+
+            <div class="player__slider volume--slider">
+
+                <div class="player__track volume--track"></div>
+                <div class="player__thumb volume--thumb"></div>
+    
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
